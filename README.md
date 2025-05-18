@@ -46,4 +46,4 @@ To run the inference:
 ├── blip-2-baseline.ipynb          # Baseline inference for BLIP-2
 ├── curation.ipynb                 # Dataset curation and preprocessing
 ├── granitevision_baseline.ipynb   # Baseline inference for Granite Vision
-
+├── VR Mini Project Two            # The problem statement given 
