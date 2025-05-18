@@ -13,6 +13,10 @@ This assignment involves creating a multiple-choice Visual Question Answering (V
 dataset using the Amazon Berkeley Objects (ABO) dataset, evaluating baseline models,
 fine-tuning using Low-Rank Adaptation (LoRA), and assessing performance using standard metrics.
 
+# Useful Files
+Please refer to the file [`curation.ipynb`](./curation.ipynb) located in the root directory of this repository for data curation. <br>
+Please refer to the folder [`dataset`](./dataset) for checking the dataset on which the model was inferred on.
+
 # Report
 
 Please refer to the report [`IMT2022506_515_560_MiniProject2.pdf`](./IMT2022506_515_560_MiniProject2.pdf) located in the root directory of this repository for detailed analysis, methodology, and results.
