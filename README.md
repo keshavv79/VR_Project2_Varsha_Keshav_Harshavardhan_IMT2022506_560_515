@@ -29,7 +29,7 @@ To run the inference:
 # File Structure of the Repo
 
 ```
-├── dataset/                        # Contains the final dataset containing of train test and validation split
+├── dataset/                       # Contains the final dataset containing of train test and validation split
 ├── generated_questions/           # Auto-generated visual question files
 ├── inference-setup/               # Setup code and scripts for inference
 ├── sample-submission/IMT2022506/  # Folder for final inference code submission
@@ -47,4 +47,4 @@ To run the inference:
 ├── curation.ipynb                 # Dataset curation and preprocessing
 ├── granitevision_baseline.ipynb   # Baseline inference for Granite Vision
 ├── VR Mini Project Two            # The problem statement given 
-├── blip_model_lora_v5              # BLIP model fine-tuned with LoRA r=16 and key value query pairs for target modules
+├── blip_model_lora_v5             # BLIP model fine-tuned with LoRA r=16 and key value query pairs for target modules
