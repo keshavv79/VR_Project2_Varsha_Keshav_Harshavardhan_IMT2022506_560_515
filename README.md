@@ -23,7 +23,7 @@ Please refer to the report [`IMT2022506_515_560_MiniProject2.pdf`](./IMT2022506_
 
 To run the inference:
 
-1. Download the `sample-submission` folder.
+1. Download the [`sample-submission`](./sample-submission folder).
 2. Set up a Python virtual environment and install required dependencies for your `run_inference_for_all.py` first.
 
 
