@@ -3,13 +3,14 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 import torch
-import requests
-from peft import PeftModel
 import os
-from transformers import (
-    BlipProcessor,
-    BlipForQuestionAnswering
-)
+import requests
+from transformers import BlipProcessor, BlipForQuestionAnswering
+from peft import PeftModel
+import re
+import inflect
+
+
 MODEL_BASE_URL = "https://huggingface.co/crapulence79/KVHBLIPModel/resolve/main/"
 ADAPTER_DIR = "lora_adapter"
 
@@ -36,6 +37,16 @@ def download_model():
         print("Downloading adapter config...")
         download_file(config_url, config_path)
 
+
+def normalize_answer(ans, inflect_engine):
+    ans = ans.strip().lower()
+    ans = re.sub(r'[^\w\s]', '', ans)  # remove punctuation
+    if ans.isdigit():
+        ans = inflect_engine.number_to_words(ans)
+    words = ans.split()
+    return words[0] if words else ""  # return first word or empty string
+
+
 def main():
 
     parser = argparse.ArgumentParser()
@@ -59,7 +70,7 @@ def main():
     model = model.to(device)
     model.eval()
     generated_answers = []
-
+    inflect_engine = inflect.engine()
     for idx, row in tqdm(df.iterrows(), total=len(df)):
         image_path = os.path.join(args.image_dir, row['image_name'])
         question = str(row['question'])
@@ -76,7 +87,8 @@ def main():
             answer = "error"
 
         # Keep just the first word, lowercase
-        answer = str(answer).split()[0].lower()
+        # print(f"answer: {answer}")
+        answer = normalize_answer(answer, inflect_engine)
         generated_answers.append(answer)
 
     df["generated_answer"] = generated_answers
